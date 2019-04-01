@@ -1,6 +1,6 @@
 # yreq
 
-`yreq` is a tool sending multiple HTTP POST requests by JSON using YAML file.
+`yreq` is a tool concurrently sending multiple HTTP POST requests by JSON using YAML file.
 
 ## Usage
 
