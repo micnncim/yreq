@@ -8,6 +8,12 @@
 $ yreq -req example.yaml -url <ENDPOINT>
 ```
 
+# Installation
+
+```
+$ go get github.com/micnncim/yreq/cmd/yreq
+```
+
 ## Example
 
 ```yaml
