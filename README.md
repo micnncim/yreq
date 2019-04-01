@@ -17,9 +17,9 @@ $ go get github.com/micnncim/yreq/cmd/yreq
 ## Example
 
 ```yaml
-- name:  Hanako
+- name: Hanako
   email: flower@mail.com
-- name:  Sumire
+- name: Sumire
   email: garnet@mail.net
 ```
 
