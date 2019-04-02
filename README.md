@@ -8,7 +8,7 @@
 $ yreq -req example.yaml -url <ENDPOINT>
 ```
 
-# Installation
+## Installation
 
 ```
 $ go get github.com/micnncim/yreq/cmd/yreq
@@ -17,26 +17,49 @@ $ go get github.com/micnncim/yreq/cmd/yreq
 ## Example
 
 ```yaml
-- name: Hanako
-  email: flower@mail.com
-- name: Sumire
-  email: garnet@mail.net
+- name: Alice
+  email: alice@mail.com
+  task:
+    - title: Walking
+      desc: Daily work out
+    - title: Study Japanese
+- name: Bob
+  email: bob@mail.net
+  task:
+    - title: Swiming
+      desc: Daily work out
+
 ```
 
-This means it sends the following requests.
+This means it concurrently sends the following requests.
 
 ```json
 {
-  "name": "Hanako",
-  "email": "flower@mail.com"
-} 
+  "email": "alice@mail.com",
+  "name": "Alice",
+  "task": [
+    {
+      "desc": "Daily work out",
+      "title": "Walking"
+    },
+    {
+      "title": "Study Japanese"
+    }
+  ]
+}
 ```
 
 ```json
 {
-  "name": "Sumire",
-  "email": "garnet@mail.net"
-} 
+  "email": "bob@mail.net",
+  "name": "Bob",
+  "task": [
+    {
+      "desc": "Daily work out",
+      "title": "Swimming"
+    }
+  ]
+}
 ```
 
 ## LICENSE
