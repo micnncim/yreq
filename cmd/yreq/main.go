@@ -6,8 +6,6 @@ import (
 	"io/ioutil"
 	"log"
 
-	"golang.org/x/sync/errgroup"
-
 	"github.com/micnncim/yreq"
 )
 
@@ -28,19 +26,18 @@ func main() {
 		log.Fatal(err)
 	}
 
-	eg := errgroup.Group{}
+	resps := make([]interface{}, 0, len(reqs))
 	for _, req := range reqs {
-		req := req
-		eg.Go(func() error {
-			respBody, err := yreq.SendReq(*url, req)
-			if err != nil {
-				return err
-			}
-			fmt.Println(string(respBody))
-			return nil
-		})
+		resp, err := yreq.SendReq(*url, req)
+		if err != nil {
+			log.Fatal(err)
+		}
+		resps = append(resps, resp)
 	}
-	if err := eg.Wait(); err != nil {
+
+	bytes, err := yreq.ToYamls(resps)
+	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Println(string(bytes))
 }
