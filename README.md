@@ -1,6 +1,6 @@
 # yreq
 
-`yreq` is a tool concurrently sending multiple HTTP POST requests by JSON using YAML file.
+`yreq` is a tool sending multiple HTTP POST requests by JSON using YAML file.
 
 ## Usage
 
@@ -31,7 +31,7 @@ $ go get github.com/micnncim/yreq/cmd/yreq
 
 ```
 
-This means it concurrently sends the following requests.
+This means it sends the following requests.
 
 ```json
 {

@@ -2,6 +2,7 @@ package yreq
 
 import (
 	"bytes"
+	"encoding/json"
 	"io/ioutil"
 	"net/http"
 	"reflect"
@@ -14,18 +15,33 @@ const (
 	contentType = "application/json"
 )
 
-func SendReq(url string, reqBody []byte) (respBody []byte, err error) {
+func SendReq(url string, reqBody []byte) (interface{}, error) {
 	r := bytes.NewReader(reqBody)
 	resp, err := http.Post(url, contentType, r)
 	if err != nil {
 		return nil, err
 	}
 	defer resp.Body.Close()
-	respBody, err = ioutil.ReadAll(resp.Body)
+	respBody, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		return nil, err
 	}
-	return
+	var dst interface{}
+	if err := json.Unmarshal(respBody, &dst); err != nil {
+		return nil, err
+	}
+	return dst, nil
+}
+
+func ToYamls(srcs []interface{}) ([]byte, error) {
+	if reflect.TypeOf(srcs).Kind() != reflect.Slice {
+		return nil, errors.New("request yaml should be array of hash")
+	}
+	yamlByte, err := yaml.Marshal(srcs)
+	if err != nil {
+		return nil, err
+	}
+	return yamlByte, nil
 }
 
 func FromYaml(buf []byte) (reqs [][]byte, err error) {
