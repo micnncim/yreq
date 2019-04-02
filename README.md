@@ -1,6 +1,6 @@
 # yreq
 
-`yreq` is a tool sending multiple HTTP POST requests by JSON using YAML file.
+`yreq` is a tool sending multiple HTTP POST requests by `JSON` using `YAML` file.
 
 ## Usage
 
@@ -15,6 +15,8 @@ $ go get github.com/micnncim/yreq/cmd/yreq
 ```
 
 ## Example
+
+Both of requests and responses are written by `YAML`.
 
 ```yaml
 - name: Alice
@@ -31,7 +33,7 @@ $ go get github.com/micnncim/yreq/cmd/yreq
 
 ```
 
-This means it sends the following requests.
+It is equivalent to the following `JSON`s.
 
 ```json
 {
