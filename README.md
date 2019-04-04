@@ -1,5 +1,10 @@
 # yreq
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/micnncim/yreq)](https://goreportcard.com/report/github.com/micnncim/yreq)
+[![CodeFactor](https://www.codefactor.io/repository/github/micnncim/yreq/badge)](https://www.codefactor.io/repository/github/micnncim/yreq)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/96cd2c8ffe014e1aab53d33690797a26)](https://www.codacy.com/app/micnncim/yreq?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=micnncim/yreq&amp;utm_campaign=Badge_Grade)
+![MIT](https://img.shields.io/badge/license-MIT-blue.svg)
+
 `yreq` is a tool sending multiple HTTP POST requests by `JSON` using `YAML` file.
 
 ## Usage
