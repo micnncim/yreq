@@ -11,12 +11,12 @@ import (
 
 func main() {
 	var (
-		req = flag.String("req", "", "request defined yaml file")
+		f   = flag.String("f", "", "request defined yaml file")
 		url = flag.String("url", "", "url getting request")
 	)
 	flag.Parse()
 
-	buf, err := ioutil.ReadFile(*req)
+	buf, err := ioutil.ReadFile(*f)
 	if err != nil {
 		log.Fatal(err)
 	}

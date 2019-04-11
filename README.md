@@ -11,7 +11,7 @@
 ## Usage
 
 ```
-$ yreq -req example.yaml -url <ENDPOINT>
+$ yreq -f example.yaml -url <ENDPOINT>
 ```
 
 ## Installation
