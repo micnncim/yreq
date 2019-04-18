@@ -1,0 +1,46 @@
+env:
+  - GO111MODULE=on
+before:
+  hooks:
+    - go mod download
+builds:
+- env:
+    - CGO_ENABLED=0
+  goos:
+    - linux
+    - darwin
+    - windows
+  goarch:
+    - 386
+    - amd64
+    - arm
+    - arm64
+  ldflags:
+    - -X main.Version={{ .Version }}
+checksum:
+  name_template: '{{ .ProjectName }}_checksums.txt'
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
+    - Merge pull request
+    - Merge branch
+brew:
+  github:
+    owner: micnncim
+    name: homebrew-tap
+  folder: Formula
+  homepage:  https://github.com/micnncim/yreq
+  description: Sending multiple HTTP POST requests by JSON using YAML
+  test: |
+    system "#{bin}/goreleaser-playground -v"
+snapcraft:
+  name_template: '{{ .ProjectName }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}'
+  publish: true
+  summary: Sending multiple HTTP POST requests by JSON using YAML
+  description: |
+    Sending multiple HTTP POST requests by JSON using YAML
+  grade: stable
+  confinement: strict
