@@ -4,7 +4,7 @@ before:
   hooks:
     - go mod download
 builds:
-  main: ./cmd/yreq/main.go
+- main: ./cmd/yreq/main.go
   env:
     - CGO_ENABLED=0
   goos:
