@@ -16,6 +16,14 @@ $ yreq -f example.yaml -url <ENDPOINT>
 
 ## Installation
 
+### Homebrew
+
+```
+$ brew install micnncim/tap/yreq
+```
+
+### go get
+
 ```
 $ go get github.com/micnncim/yreq/cmd/yreq
 ```
