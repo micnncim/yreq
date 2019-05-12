@@ -1,5 +1,6 @@
 # yreq
 
+[![Release](https://img.shields.io/github/release/micnncim/yreq.svg)](https://github.com/micnncim/yreq/releases)
 [![Go Report Card](https://goreportcard.com/badge/github.com/micnncim/yreq)](https://goreportcard.com/report/github.com/micnncim/yreq)
 [![Maintainability](https://api.codeclimate.com/v1/badges/f9b2c8472895f4a17a10/maintainability)](https://codeclimate.com/github/micnncim/yreq/maintainability)
 [![CodeFactor](https://www.codefactor.io/repository/github/micnncim/yreq/badge)](https://www.codefactor.io/repository/github/micnncim/yreq)
